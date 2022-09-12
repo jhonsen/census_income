@@ -1,9 +1,12 @@
-python==3.9
-numpy
-pandas
-scikit-learn
-pytest
-requests
-fastapi
-uvicorn
-gunicorn
+name: census
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - scikit-learn
+  - pandas
+  - notebook
+  - jupyterlab
+  - fastapi
+  - uvicorn
