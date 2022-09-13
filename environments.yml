@@ -10,3 +10,4 @@ dependencies:
   - jupyterlab
   - fastapi
   - uvicorn
+  - dvc
