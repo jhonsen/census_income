@@ -1,11 +1,10 @@
-import os
 import pytest
 import pandas as pd
 
 @pytest.fixture(scope="session")
 def clean_data():
 
-    local_path = os.path.join('./data/clean_census.csv')
+    local_path = 'data/clean_census.csv'
     df = pd.read_csv(local_path, low_memory=False)
 
     return df
