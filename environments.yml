@@ -11,4 +11,5 @@ dependencies:
   - fastapi
   - uvicorn
   - dvc
+  - dvc-gdrive
   - imbalanced-learn
