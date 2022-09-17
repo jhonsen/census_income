@@ -1,9 +1,9 @@
 stages:
   prepare:
-    cmd: python ./src/preprocessing/data_preprocessing.py
+    cmd: python ./src/preprocessing/data_processing.py
     deps:
     - data/census.csv
-    - src/preprocessing/data_preprocessing.py
+    - src/preprocessing/data_processing.py
     outs:
     - data/clean_census.csv
   train:
