@@ -3,15 +3,19 @@ import pandas as pd
 import numpy as np
 
 DATAFOLDER = 'data'
+GAIN_OUTLIER_CUTOFF = 20000
 
 def load_data(filepath):
-    data = pd.read_csv(filepath)
+    data = pd.read_csv(os.path.join(DATAFOLDER,filepath))
     return data
 
+def save_data(data, filename):
+    data.to_csv(os.path.join(DATAFOLDER, filename))
+    
 def fix_column_names(data):
 
     # Fix colnames for pandas
-    colnames = [c.replace('-','_').strip() for c in data.columns]
+    colnames = [c.lower().replace('-','_').strip() for c in data.columns]
     data.columns = colnames
 
     return data
@@ -50,10 +54,16 @@ def preprocess_data(data):
         data.loc[data[cat]=="?", cat] = np.nan
         data[cat].fillna(data[cat].mode().values[0], inplace=True)        
 
+    # remove outliers
+    data = data[data.capital_gain < GAIN_OUTLIER_CUTOFF]
+
+    # remove dupes
+    data = data.drop_duplicates(subset=categorical_features+numerical_features)
+
     return data
 
 if __name__ == "__main__":
 
-    census_data = load_data(os.path.join(DATAFOLDER, 'census.csv'))
+    census_data = load_data('census.csv')
     clean_data = preprocess_data(census_data)
-    clean_data.to_csv(os.path.join(DATAFOLDER, 'clean_census.csv'))
+    save_data(clean_data, 'clean_census.csv')

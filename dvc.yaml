@@ -1,0 +1,17 @@
+stages:
+  prepare:
+    cmd: python ./src/preprocessing/data_preprocessing.py
+    deps:
+    - data/census.csv
+    - src/preprocessing/data_preprocessing.py
+    outs:
+    - data/clean_census.csv
+  train:
+    cmd: python ./src/train_model.py
+    deps:
+    - data/census.csv
+    - src/train_model.py
+    outs:
+    - data/X_test.pkl
+    - data/y_test.pkl
+    - model/rf_model.p

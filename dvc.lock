@@ -1,0 +1,19 @@
+train:
+  cmd: python ./src/train_model.py
+  deps:
+  - path: data/census.csv
+    md5: 145de00f6e6053d3f7044628f9a5b5ff
+    size: 3974474
+  - path: src/train_model.py
+    md5: 6509118f715942109cfbd2e9e1d6220c
+    size: 2258
+  outs:
+  - path: data/X_test.pkl
+    md5: 7688bc5216cc5b5bac83a67076fb7e5d
+    size: 45083
+  - path: data/y_test.pkl
+    md5: c6b2660baa5cb50daddc4de191e1f984
+    size: 10418
+  - path: model/rf_model.p
+    md5: 12637609dde8163dac5ecf0ea8286494
+    size: 5973696

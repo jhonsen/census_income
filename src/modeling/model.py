@@ -7,8 +7,16 @@ from sklearn.impute import SimpleImputer
 from imblearn.pipeline import Pipeline as imbPipeline
 from imblearn.combine import SMOTEENN
 
+
+def feature_engineer(X_train):
+
+    # combine feature
+    X_train['capital_diff'] = (X_train['capital_gain'] - X_train['capital_loss'])
+
+    return X_train
+
 # Optional: implement hyperparameter tuning.
-def train_model(X_train, y_train):
+def train_random_forest(X_train, y_train):
     """
     Trains a machine learning model and returns it.
     Inputs
@@ -54,7 +62,7 @@ def train_model(X_train, y_train):
         ]
     )
 
-    model.fit(X_train[train_cols], y_train)
+    model.fit(X_train[train_cols], y_train.values.ravel())
 
     return model
 
