@@ -30,7 +30,7 @@ jobs:
      
       - run: | 
             dvc remote add driveremote gdrive://1Wo-9a-fnLbF0dLiXVGq3P9X9ZuRwGVtO
-            dvc pull
+            dvc pull -r filterout --run-cache
         env:
           GDRIVE_CREDENTIALS_DATA: $
       - run: |
