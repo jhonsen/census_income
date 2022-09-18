@@ -4,8 +4,8 @@ import pickle
 import logging
 import pandas as pd
 from modeling.model import compute_model_metrics, inference
-from preprocessing.data_processing import DATAFOLDER
-from train_model import MODELFOLDER
+DATAFOLDER = 'data'
+MODELFOLDER = 'model'
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -26,7 +26,7 @@ def load_model(pklname='rf_model.p'):
         clf = pickle.load(fin)
     return clf
 
-def evaluate_test_by_slice(clf, y_preds, colname):
+def evaluate_test_by_slice(clf, colname):
 
     X_test, y_test = load_holdout()
     
@@ -52,5 +52,9 @@ def save_metrics_by_slice(metrics_output):
     logger.info("Saving metrics by slice")
     with open(os.path.join(DATAFOLDER,'slice_output.txt'),'w') as fout:
         fout.write(metrics_output)
-    
-    
+
+if __name__=='__main__':
+    X_test, y_test = load_holdout()
+    clf = load_model()
+    slice_metrics = evaluate_test_by_slice(clf, colname='workclass')
+    save_metrics_by_slice(slice_metrics)

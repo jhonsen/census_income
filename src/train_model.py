@@ -10,6 +10,7 @@ from preprocessing.data_processing import preprocess_data
 from modeling.model import train_random_forest, feature_engineer
 from preprocessing.data_processing import load_data
 from preprocessing.data_processing import DATAFOLDER
+from evaluate_model import evaluate_test_by_slice, load_model, load_holdout
 
 MODELFOLDER = 'model'
 DATAFOLDER = 'data'
