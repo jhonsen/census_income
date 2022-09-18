@@ -17,8 +17,8 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: srvaroa/labeler@v0.8
+    - uses: actions/labeler@v4
       with:
-        config_path: .github/labeler.yml
+        config_path: .github/labeler_config.yml
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
