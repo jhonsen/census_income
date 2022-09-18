@@ -10,3 +10,6 @@ dependencies:
   - jupyterlab
   - fastapi
   - uvicorn
+  - dvc
+  - dvc-gdrive
+  - imbalanced-learn
