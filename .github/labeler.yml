@@ -1,7 +1,12 @@
-source:
-- src/**/*
-modeling:
-- src/modeling/*
-preprocessing:
-- src/preprocessing/*
+version: 1
+labels:
+  - label: "source"
+    files: 
+      - src/**/*
+  - label: "modeling"
+    files:
+      - src/modeling/*
+  - label: "preprocessing"
+    files:
+      - src/preprocessing/*
 

@@ -19,4 +19,6 @@ jobs:
     steps:
     - uses: actions/labeler@v4
       with:
+        config_path: .github/labeler.yml
+      with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
