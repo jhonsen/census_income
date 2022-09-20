@@ -13,3 +13,6 @@ dependencies:
   - dvc
   - dvc-gdrive
   - imbalanced-learn
+  pip:
+    - "uvicorn[standard]"
+

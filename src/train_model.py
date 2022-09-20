@@ -10,10 +10,8 @@ from preprocessing.data_processing import preprocess_data
 from modeling.model import train_random_forest, feature_engineer
 from preprocessing.data_processing import load_data
 from preprocessing.data_processing import DATAFOLDER
-from evaluate_model import evaluate_test_by_slice, load_model, load_holdout
-
-MODELFOLDER = 'model'
-DATAFOLDER = 'data'
+from modeling.constants import CATEGORICAL_FEATURES, NUMERIC_FEATURES
+from modeling.constants import DATAFOLDER,MODELFOLDER
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -28,25 +26,7 @@ def main():
     # Process the test data with the process_data function.
     clean_data = preprocess_data(data)
 
-    numeric_features = [
-        'age',
-        'fnlgt',
-        'education_num',
-        'hours_per_week',
-        'capital_diff'
-    ]
-
-    categorical_features = [
-        'workclass',
-        'marital_status',
-        'occupation',
-        'relationship',
-        'race',
-        'sex',
-        'native_country'
-    ]
-
-    feature_cols = categorical_features + numeric_features
+    feature_cols = CATEGORICAL_FEATURES + NUMERIC_FEATURES
     target_col = ['salary']
 
     # Define feature space and target
