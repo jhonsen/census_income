@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 import numpy as np
+from modeling.constants import DATAFOLDER
 
-DATAFOLDER = 'data'
 GAIN_OUTLIER_CUTOFF = 20000
 
 def load_data(filepath):
@@ -22,7 +22,8 @@ def fix_column_names(data):
 
 def preprocess_data(data):
     
-    categorical_features = [
+    # cokumns used only in preprocessing
+    _categorical_features = [
         'workclass',
         'education',
         'marital_status',
@@ -33,7 +34,7 @@ def preprocess_data(data):
         'native_country',
         'salary'
     ]
-    numerical_features = [
+    _numerical_features = [
         'age',
         'fnlgt',
         'education_num',
@@ -45,11 +46,11 @@ def preprocess_data(data):
     data = fix_column_names(data)
 
     # replace nans with mean
-    for cat in numerical_features:
+    for cat in _numerical_features:
         data[cat].fillna(data[cat].mean(), inplace=True)
 
     # replace nans with mode
-    for cat in categorical_features:
+    for cat in _categorical_features:
         data[cat] = data[cat].apply(lambda s: s.strip())
         data.loc[data[cat]=="?", cat] = np.nan
         data[cat].fillna(data[cat].mode().values[0], inplace=True)        
@@ -58,7 +59,7 @@ def preprocess_data(data):
     data = data[data.capital_gain < GAIN_OUTLIER_CUTOFF]
 
     # remove dupes
-    data = data.drop_duplicates(subset=categorical_features+numerical_features)
+    data = data.drop_duplicates(subset=_categorical_features+_numerical_features)
 
     return data
 

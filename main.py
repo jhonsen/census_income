@@ -47,7 +47,7 @@ async def say_hello():
 # Define a POST method
 @app.post('/predict_holdout')
 def predict_holdout(row: int):
-    assert (row < 3229) & (row >= 0), 'i must be between 0 and 3228'
+    assert (row < 3229) & (row >= 0), 'i must be between 0 and 3228 rows'
 
     input_data = pd.DataFrame(X_test.reset_index().iloc[row],index=FEATURES).T
     prediction = model.predict(input_data)[0]
