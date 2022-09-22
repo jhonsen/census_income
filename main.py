@@ -55,7 +55,7 @@ def predict_holdout(row: int):
     
     return {'prediction':prediction, 'probability':probability}
     
-@app.post('/predict_new_data')
+@app.post('/predict_new_data', response_description=FeaturesIn)
 def predict_new_data(data:FeaturesIn):
     
     input_data = pd.DataFrame(data.dict(),index=[0])
