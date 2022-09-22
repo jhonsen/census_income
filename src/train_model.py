@@ -11,7 +11,7 @@ from modeling.model import train_random_forest, feature_engineer
 from preprocessing.data_processing import load_data
 from preprocessing.data_processing import DATAFOLDER
 from modeling.constants import CATEGORICAL_FEATURES, NUMERIC_FEATURES
-from modeling.constants import DATAFOLDER,MODELFOLDER
+from modeling.constants import DATAFOLDER, MODELFOLDER
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
