@@ -10,7 +10,7 @@ jobs:
     name: Miniconda
     runs-on: "ubuntu-latest"
     defaults:
-      - run:
+      run:
         shell: bash -l {0}
     steps:
       - uses: actions/checkout@v2
