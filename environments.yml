@@ -13,6 +13,6 @@ dependencies:
   - uvicorn
   - imbalanced-learn
   - pip
-  pip:
+  - pip:
     - "uvicorn[standard]"
 
