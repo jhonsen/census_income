@@ -66,3 +66,4 @@ def predict_new_data(data:FeaturesIn):
     return  {
         'prediction': prediction, 'probability': probability
     }
+    
