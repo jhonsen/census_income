@@ -12,6 +12,7 @@ dependencies:
   - fastapi
   - uvicorn
   - imbalanced-learn
+  - pip
   pip:
     - "uvicorn[standard]"
 
