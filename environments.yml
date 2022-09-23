@@ -4,12 +4,15 @@ channels:
   - defaults
 dependencies:
   - python=3.8
+  - pytest
   - scikit-learn
   - pandas
   - notebook
   - jupyterlab
   - fastapi
   - uvicorn
-  - dvc
-  - dvc-gdrive
   - imbalanced-learn
+  - pip
+  - pip:
+    - "uvicorn[standard]"
+

@@ -4,8 +4,7 @@ import pickle
 import logging
 import pandas as pd
 from modeling.model import compute_model_metrics, inference
-DATAFOLDER = 'data'
-MODELFOLDER = 'model'
+from modeling.constants import DATAFOLDER, MODELFOLDER
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
