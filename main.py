@@ -6,6 +6,7 @@ import pandas as pd
 from typing import List, Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+import uvicorn
 from src.modeling.constants import CATEGORICAL_FEATURES, NUMERIC_FEATURES
 from src.modeling.constants import DATAFOLDER,MODELFOLDER
 
@@ -55,7 +56,7 @@ def predict_holdout(row: int):
     
     return {'prediction':prediction, 'probability':probability}
     
-@app.post('/predict_new_data', response_description=FeaturesIn)
+@app.post('/predict_new_data')
 def predict_new_data(data:FeaturesIn):
     
     input_data = pd.DataFrame(data.dict(),index=[0])
@@ -66,4 +67,6 @@ def predict_new_data(data:FeaturesIn):
     return  {
         'prediction': prediction, 'probability': probability
     }
-    
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

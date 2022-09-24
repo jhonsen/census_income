@@ -1,0 +1,9 @@
+METRICS by feature slice: workplace
+Self-emp-not-inc, precision: 0.59, recall: 0.603175, fbeta: 0.60
+Private, precision: 0.64, recall: 0.642000, fbeta: 0.64
+Local-gov, precision: 0.68, recall: 0.787879, fbeta: 0.73
+State-gov, precision: 0.70, recall: 0.696970, fbeta: 0.70
+Federal-gov, precision: 0.78, recall: 0.783784, fbeta: 0.78
+Self-emp-inc, precision: 0.74, recall: 0.896552, fbeta: 0.81
+Without-pay, precision: 1.00, recall: 1.000000, fbeta: 1.00
+Never-worked, precision: 1.00, recall: 1.000000, fbeta: 1.00
