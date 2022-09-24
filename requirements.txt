@@ -1,0 +1,9 @@
+pytest
+scikit-learn
+pandas
+jupyterlab
+notebook
+fastapi
+uvicorn
+imbalanced-learn
+uvicorn[standard]
